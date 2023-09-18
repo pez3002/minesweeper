@@ -1,5 +1,5 @@
 import * as Declarations from "../declarations";
-import { BorderStyles } from "../colors";
+import { BorderInset } from "../colors";
 
 export const getRandomIndex = (
   rowMax: number,
@@ -75,10 +75,10 @@ export const createGrid = (rows: number, cols: number): Declarations.Grid => {
         show: false,
         flagShow: false,
         borderStyle: {
-          borderBottom: "",
-          borderLeft: "",
-          borderRight: "",
-          borderTop: "",
+          borderBottom: "0px",
+          borderLeft: "0px",
+          borderRight: "0px",
+          borderTop: "0px",
         },
         rowPos: i,
         colPos: j,
@@ -152,7 +152,7 @@ export const setBorders = (
 
   if (
     !startingNode.show ||
-    startingNode.kind == Declarations.NodeKind.Flagged
+    startingNode.kind != Declarations.NodeKind.Indicator
   ) {
     return;
   }
@@ -176,16 +176,16 @@ export const setBorders = (
 
     if (!currentNode.show) {
       if (direction[0] == -1 && direction[1] == 0) {
-        startingNode.borderStyle.borderTop = BorderStyles.borderTop;
+        currentNode.borderStyle.borderBottom = BorderInset;
       }
       if (direction[0] == 1 && direction[1] == 0) {
-        startingNode.borderStyle.borderBottom = BorderStyles.borderBottom;
+        currentNode.borderStyle.borderTop = BorderInset;
       }
       if (direction[0] == 0 && direction[1] == 1) {
-        startingNode.borderStyle.borderRight = BorderStyles.borderRight;
+        currentNode.borderStyle.borderLeft = BorderInset;
       }
       if (direction[0] == 0 && direction[1] == -1) {
-        startingNode.borderStyle.borderLeft = BorderStyles.borderLeft;
+        currentNode.borderStyle.borderRight = BorderInset;
       }
     }
   }
@@ -291,9 +291,9 @@ export const emptyBorder = (
   grid: Declarations.Grid
 ) => {
   grid[row][col].borderStyle = {
-    borderTop: "",
-    borderBottom: "",
-    borderLeft: "",
-    borderRight: "",
+    borderTop: "0px",
+    borderBottom: "0px",
+    borderLeft: "0px",
+    borderRight: "0px",
   };
 };

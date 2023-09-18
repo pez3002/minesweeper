@@ -2,17 +2,15 @@ type IndicatorColorsType = {
   readonly [key: number]: string;
 };
 
-export const BorderColor = "#1d9621";
-
 export const PageBackground = "#006923";
 
 export const ButtonColor = PageBackground;
 
-export const OddNodePrimary = "#9dff00";
+export const OddNodePrimary = "#bad5ff";
 
 export const OddNodeSecondary = "#a19e7f";
 
-export const EvenNodePrimary = "#569602";
+export const EvenNodePrimary = "#242424";
 
 export const EvenNodeSecondary = "#78765f";
 
@@ -36,8 +34,10 @@ export const IndicatorColors: IndicatorColorsType = {
 } as const;
 
 export const BorderStyles = {
-  borderTop: "solid 0.4vh " + BorderColor,
-  borderLeft: "solid 0.4vh " + BorderColor,
-  borderRight: "solid 0.4vh " + BorderColor,
-  borderBottom: "solid 0.4vh " + BorderColor,
+  borderTop: "5px",
+  borderLeft: "5px",
+  borderRight: "5px",
+  borderBottom: "5px",
 } as const;
+
+export const BorderInset = "0.5vh";

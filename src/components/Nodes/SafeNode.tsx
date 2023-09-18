@@ -18,6 +18,7 @@ export const SafeNode = (props: SafeNodeProps) => {
         width: "100%",
         height: "100%",
         backgroundColor: color,
+        zIndex: 2,
       }}
     >
       {props.children}

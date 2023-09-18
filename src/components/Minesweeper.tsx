@@ -45,6 +45,15 @@ const Game = () => {
         className={"gameContainer" + opacity}
       >
         <Navbar />
+        <div
+          style={{
+            position: "absolute",
+            width: "150vh",
+            height: "150vh",
+            background: "linear-gradient(#00ccff, #d500f9)",
+            animation: "rotate 4s linear infinite",
+          }}
+        ></div>
         <Grid />
       </div>
     </>

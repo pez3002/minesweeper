@@ -7,6 +7,7 @@ export const FlagNode = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        zIndex: 3,
       }}
     >
       <img

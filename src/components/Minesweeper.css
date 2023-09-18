@@ -3,6 +3,8 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+  position: relative;
 }
 
 .gridContainer {
@@ -22,4 +24,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

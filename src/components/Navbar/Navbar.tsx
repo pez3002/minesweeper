@@ -10,6 +10,7 @@ export const Navbar = () => {
         alignContent: "center",
         justifyContent: "space-around",
         padding: "1vh",
+        zIndex: 2,
       }}
     >
       <Flags />

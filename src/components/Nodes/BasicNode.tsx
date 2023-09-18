@@ -1,5 +1,5 @@
 import * as Declarations from "../../declarations";
-import { useGameState } from "../../hooks/GameHooks";
+import { useMemo } from "react";
 
 interface BasicNodeProps {
   children?: React.ReactNode;
@@ -10,14 +10,19 @@ interface BasicNodeProps {
 }
 
 export const BasicNode = (props: BasicNodeProps) => {
-  const { gameState } = useGameState();
+  const inset = useMemo(
+    () =>
+      `${props.node.borderStyle.borderTop} ${props.node.borderStyle.borderRight} ${props.node.borderStyle.borderBottom} ${props.node.borderStyle.borderLeft}`,
+    [
+      props.node.borderStyle.borderTop,
+      props.node.borderStyle.borderRight,
+      props.node.borderStyle.borderLeft,
+      props.node.borderStyle.borderBottom,
+    ]
+  );
 
-  let opacity = "";
-  if (
-    gameState == Declarations.GameState.End ||
-    gameState == Declarations.GameState.Win
-  ) {
-    opacity = "opacity";
+  if (props.node.borderStyle.borderTop != "0px") {
+    console.log(inset);
   }
 
   return (
@@ -26,21 +31,16 @@ export const BasicNode = (props: BasicNodeProps) => {
       onContextMenu={props.handleRightClick}
       className={"gridNode"}
       style={{
-        backgroundColor: props.backgroundColor,
+        overflow: "hidden",
+        position: "relative",
       }}
     >
       {props.children}
       <div
-        className={opacity}
         style={{
           position: "absolute",
-          zIndex: 1,
-          width: "10vh",
-          height: "10vh",
-          borderTop: props.node.borderStyle.borderTop,
-          borderBottom: props.node.borderStyle.borderBottom,
-          borderRight: props.node.borderStyle.borderRight,
-          borderLeft: props.node.borderStyle.borderLeft,
+          backgroundColor: props.backgroundColor,
+          inset: inset,
         }}
       ></div>
     </div>

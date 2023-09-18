@@ -13,6 +13,7 @@ export const FlaggedNode = (props: FlaggedNodeProps) => {
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: props.backgroundColor,
+        zIndex: 2,
       }}
     >
       <div
